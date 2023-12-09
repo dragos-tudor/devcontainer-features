@@ -1,0 +1,7 @@
+{
+    "image": "ubuntu:22.04",
+    "runArgs": [
+        "--name=devcontainer-features",
+        "--hostname=devcontainer-features"
+    ]
+}
