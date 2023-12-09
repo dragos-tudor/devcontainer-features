@@ -11,7 +11,7 @@
         }
     },
     "installsAfter": [
-        "https://github.com/dragos-tudor/devcontainer-features/releases/debian-packages.tgz",
-        "https://github.com/dragos-tudor/devcontainer-features/releases/debian-user-group.tgz"
+        "ghcr.io/dragos-tudor/devcontainer-features/debian-packages",
+        "ghcr.io/dragos-tudor/devcontainer-features/debian-user-group"
     ]
 }
