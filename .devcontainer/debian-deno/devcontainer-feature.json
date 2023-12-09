@@ -1,0 +1,14 @@
+{
+    "name": "debian deno",
+    "id": "debian-deno",
+    "version": "1.0.0",
+    "description": "Install debian deno feature",
+    "options": {
+        "deno_version": {
+            "type": "string",
+            "default": "v1.38.5",
+            "description": "deno version"
+        }
+    },
+    "installAfter": ["./debian-user-group", "./debian-packages"]
+}

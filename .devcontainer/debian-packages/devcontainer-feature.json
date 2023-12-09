@@ -1,0 +1,13 @@
+{
+    "name": "debian packages",
+    "id": "debian-packages",
+    "version": "1.0.0",
+    "description": "Install debian packages feature",
+    "options": {
+        "packages": {
+            "type": "string",
+            "default": "ca-certificates curl git libicu70 mkcert nano tar unzip",
+            "description": "debian packages"
+        }
+    }
+}
