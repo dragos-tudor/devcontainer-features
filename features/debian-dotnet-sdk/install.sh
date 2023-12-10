@@ -9,7 +9,7 @@ curl -fsSL $DOTNET_SDK_URL -o $USER_HOME/dotnet.tar.gz &&
 	mkdir -p $DOTNET_PATH &&
 	tar -xzf $USER_HOME/dotnet.tar.gz -C $DOTNET_PATH &&
   chmod +x $DOTNET_PATH/dotnet &&
-  chown $USER:$USER $DOTNET_PATH &&
+  chown -R $USER:$USER $DOTNET_PATH &&
   rm $USER_HOME/dotnet.tar.gz
 
 NUGET_PATH=$USER_HOME/.nuget
