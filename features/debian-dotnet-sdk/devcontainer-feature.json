@@ -1,7 +1,7 @@
 {
     "name": "debian dotnet sdk",
     "id": "debian-dotnet-sdk",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Install dotnet sdk feature",
     "options": {
         "dotnet_sdk_url": {
