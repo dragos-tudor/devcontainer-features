@@ -15,7 +15,6 @@ curl -fsSL $DOTNET_SDK_URL -o $USER_HOME/dotnet.tar.gz &&
 NUGET_PATH=$USER_HOME/.nuget
 mkdir $NUGET_PATH
 
-
 cat << EOF >> $USER_HOME/.bashrc
 export DOTNET_ROOT=$DOTNET_ROOT
 export DOTNET_GENERATE_ASPNET_CERTIFICATE=false
@@ -26,3 +25,6 @@ export DOTNET_NOLOGO=true
 export NUGET_XMLDOC_MODE=skip
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 EOF
+
+echo "Devcontainer feature [debian-dotnet-sdk]: dotnet installed. dotnet path: $DOTNET_PATH. dotnet sdk url: $DOTNET_SDK_URL"
+echo "Devcontainer feature [debian-dotnet-sdk]: nuget path: $NUGET_PATH"
