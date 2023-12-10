@@ -23,7 +23,7 @@ export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_NOLOGO=true
 export NUGET_XMLDOC_MODE=skip
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export PATH="\$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 EOF
 
 echo "Devcontainer feature [debian-dotnet-sdk]: dotnet installed. dotnet path: $DOTNET_PATH. dotnet sdk url: $DOTNET_SDK_URL"

@@ -12,7 +12,7 @@ curl -fsSL https://github.com/denoland/deno/releases/download/$DENO_VERSION/deno
 
 cat << EOF >> $USER_HOME/.bashrc
 export DENO_DIR=$DENO_DIR
-export PATH=$PATH:$DENO_DIR
+export PATH="\$PATH:$DENO_DIR"
 EOF
 
 echo "Devcontainer feature [debian-deno]: deno installed. deno dir: $DENO_DIR. deno version: $DENO_VERSION"
