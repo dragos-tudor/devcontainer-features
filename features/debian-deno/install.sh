@@ -2,17 +2,21 @@ set -e
 
 USER=${_REMOTE_USER:-vscode}
 USER_HOME=/home/$USER
-DENO_DIR=$USER_HOME/.deno
+DENO_ROOT=$USER_HOME/.deno
 
 curl -fsSL https://github.com/denoland/deno/releases/download/$DENO_VERSION/deno-x86_64-unknown-linux-gnu.zip -o $USER_HOME/deno.zip &&
-    unzip -d $DENO_DIR -o $USER_HOME/deno.zip &&
-    chmod +x $DENO_DIR/deno &&
-    chown -R $USER:$USER $DENO_DIR &&
+    unzip -d $DENO_ROOT -o $USER_HOME/deno.zip &&
+    chmod +x $DENO_ROOT/deno &&
+    chown -R $USER:$USER $DENO_ROOT &&
     rm $USER_HOME/deno.zip
 
+DENO_CACHE=$USER_HOME/.deno-cache
+mkdir -p $DENO_CACHE
+    chown -R $USER:$USER $DENO_CACHE
+
 cat << EOF >> $USER_HOME/.bashrc
-export DENO_DIR=$DENO_DIR
-export PATH="\$PATH:$DENO_DIR"
+export DENO_DIR=$DENO_CACHE
+export PATH="\$PATH:$DENO_ROOT"
 EOF
 
-echo "Devcontainer feature [debian-deno]: deno installed. deno dir: $DENO_DIR. deno version: $DENO_VERSION"
+echo "Devcontainer feature [debian-deno]: deno installed, deno root: $DENO_ROOT, deno cache: $DENO_CACHE, deno version: $DENO_VERSION"
