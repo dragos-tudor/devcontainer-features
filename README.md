@@ -2,10 +2,10 @@
 ## Devcontainer features
 
 ### Debian features
-- [debian-packages](debian-packages): install choosen/default apt packages.
-- [debian-user-group](debian-user-group): add user and group based on **_REMOTE_USER** devcontainer env var ["remoteUser" devcontainer.json option]. User **root** not supported.
-- [debian-dotnet-sdk](debian-dotnet-sdk): install bare-metal **dotnet sdk** and prepare nuget location. This feature depends on **debian-packages** [curl, tar] and on **debian-user-group** for remote user home.
-- [debian-deno](debian-deno): install bare-metal **deno** and set deno cache location. This feature depends on **debian-packages** [curl, unzip] and on **debian-user-group** for remote user home.
+- [debian-packages](features/debian-packages): install choosen/default apt packages.
+- [debian-user-group](features/debian-user-group): add user and group based on **_REMOTE_USER** devcontainer env var ["remoteUser" devcontainer.json option]. User **root** not supported.
+- [debian-dotnet-sdk](features/debian-dotnet-sdk): install bare-metal **dotnet sdk** and prepare nuget location. This feature depends on **debian-packages** [curl, tar] and on **debian-user-group** for remote user home.
+- [debian-deno](features/debian-deno): install bare-metal **deno** and set deno cache location. This feature depends on **debian-packages** [curl, unzip] and on **debian-user-group** for remote user home.
 
 ### Remarks
 - usually container workspace owner user/group ids should map with directory owner host user/group ids.
