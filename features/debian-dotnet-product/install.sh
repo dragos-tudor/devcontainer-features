@@ -5,7 +5,12 @@ USER_HOME=/home/$USER
 DOTNET_PATH=$USER_HOME/.dotnet
 DOTNET_ROOT=$DOTNET_PATH
 
-curl -fsSL $DOTNET_SDK_URL -o $USER_HOME/dotnet.tar.gz &&
+if [[ -n $BUILD ]]; then DOTNET_BUILD=/$BUILD; fi
+DOTNET_PRODUCT_URL="https://aka.ms/dotnet/${VERSION}${DOTNET_BUILD}/${PRODUCT}-${OS}-${ARCH}.${EXT}"
+
+echo "Devcontainer feature [debian-dotnet-product]: install dotnet product from: $DOTNET_PRODUCT_URL"
+
+curl -fsSL $DOTNET_PRODUCT_URL -o $USER_HOME/dotnet.tar.gz &&
 	mkdir -p $DOTNET_PATH &&
 	tar -xzf $USER_HOME/dotnet.tar.gz -C $DOTNET_PATH &&
   chmod +x $DOTNET_PATH/dotnet &&
@@ -26,5 +31,5 @@ export NUGET_XMLDOC_MODE=skip
 export PATH="\$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 EOF
 
-echo "Devcontainer feature [debian-dotnet-sdk]: dotnet installed. dotnet path: $DOTNET_PATH. dotnet sdk url: $DOTNET_SDK_URL"
-echo "Devcontainer feature [debian-dotnet-sdk]: nuget path: $NUGET_PATH"
+echo "Devcontainer feature [debian-dotnet-product]: dotnet installed. dotnet path: $DOTNET_PATH. dotnet product url: $DOTNET_PRODUCT_URL"
+echo "Devcontainer feature [debian-dotnet-product]: nuget path: $NUGET_PATH"

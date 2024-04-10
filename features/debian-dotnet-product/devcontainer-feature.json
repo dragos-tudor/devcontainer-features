@@ -1,0 +1,42 @@
+{
+    "name": "debian dotnet product",
+    "id": "debian-dotnet-product",
+    "version": "1.0.0",
+    "description": "Install dotnet product feature",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "8.0",
+            "description": "dotnet version"
+        },
+        "build": {
+            "type": "string",
+            "default": "",
+            "description": "dotnet build"
+        },        
+        "product": {
+            "type": "string",
+            "default": "dotnet-sdk",
+            "description": "dotnet product"
+        },
+        "os": {
+            "type": "string",
+            "default": "linux",
+            "description": "operating system moniker"
+        },
+        "arch": {
+            "type": "string",
+            "default": "x64",
+            "description": "os architecture"
+        },
+        "ext": {
+            "type": "string",
+            "default": "tar.gz",
+            "description": "extension"
+        }                                  
+    },
+    "installsAfter": [
+        "ghcr.io/dragos-tudor/devcontainer-features/debian-packages",
+        "ghcr.io/dragos-tudor/devcontainer-features/debian-user-group"
+    ]
+}
