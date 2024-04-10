@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -e
 
 USER=${_REMOTE_USER:-vscode}
@@ -5,7 +6,9 @@ USER_HOME=/home/$USER
 DENO_ROOT=$USER_HOME/.deno
 DENO_RELEASE_URL="https://github.com/denoland/deno/releases/download/$VERSION/deno-$ARCH-$OS.zip"
 
-echo "Devcontainer feature [debian-deno]: install deno from: $DENO_RELEASE_URL"
+cat << EOF >> $USER_HOME/.devcontainer_features.log
+Devcontainer feature [debian-deno]: install deno from: $DENO_RELEASE_URL.
+EOF
 
 curl -fsSL $DENO_RELEASE_URL -o $USER_HOME/deno.zip &&
     unzip -d $DENO_ROOT -o $USER_HOME/deno.zip &&
@@ -22,4 +25,6 @@ export DENO_DIR=$DENO_CACHE
 export PATH="\$PATH:$DENO_ROOT"
 EOF
 
-echo "Devcontainer feature [debian-deno]: deno installed, deno root: $DENO_ROOT, deno cache: $DENO_CACHE, deno version: $VERSION"
+cat << EOF >> $USER_HOME/.devcontainer_features.log
+Devcontainer feature [debian-deno]: deno installed, deno root: $DENO_ROOT, deno cache: $DENO_CACHE, deno version: $VERSION.
+EOF

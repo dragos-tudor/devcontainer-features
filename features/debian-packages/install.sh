@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -e
 
 apt update &&
@@ -5,5 +6,3 @@ apt update &&
   apt -y autoremove &&
   apt -y clean &&
   rm -rf /var/lib/apt/lists/*
-
-echo "Devcontainer feature [debian-packages]: Packages $PACKAGES installed."

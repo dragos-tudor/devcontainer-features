@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -e
 
 [ $_REMOTE_USER = root ] && echo "Devcontainer feature [debian-user-group]: Root user not supported" && exit 1;
@@ -12,5 +13,7 @@ groupadd -g $GID $GROUP &&
 	groupadd -g 999 docker &&
   useradd -m -d $USER_HOME -s /bin/bash -g $GID -G 999 -u $UID $USER
 
-echo "Devcontainer feature [debian-user-group]: User $USER:$UID created."
-echo "Devcontainer feature [debian-user-group]: Group $GROUP:$GID created."  
+cat << EOF >> $USER_HOME/.devcontainer_features.log
+Devcontainer feature [debian-user-group]: User $USER:$UID created.
+Devcontainer feature [debian-user-group]: Group $GROUP:$GID created.
+EOF

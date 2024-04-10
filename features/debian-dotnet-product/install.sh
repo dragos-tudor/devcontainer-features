@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -e
 
 USER=${_REMOTE_USER:-vscode}
@@ -8,7 +9,9 @@ DOTNET_ROOT=$DOTNET_PATH
 if [[ -n $BUILD ]]; then DOTNET_BUILD=/$BUILD; fi
 DOTNET_PRODUCT_URL="https://aka.ms/dotnet/${VERSION}${DOTNET_BUILD}/${PRODUCT}-${OS}-${ARCH}.${EXT}"
 
-echo "Devcontainer feature [debian-dotnet-product]: install dotnet product from: $DOTNET_PRODUCT_URL"
+cat << EOF >> $USER_HOME/.devcontainer_features.log
+Devcontainer feature [debian-dotnet-product]: install dotnet product from: $DOTNET_PRODUCT_URL.
+EOF
 
 curl -fsSL $DOTNET_PRODUCT_URL -o $USER_HOME/dotnet.tar.gz &&
 	mkdir -p $DOTNET_PATH &&
@@ -31,5 +34,7 @@ export NUGET_XMLDOC_MODE=skip
 export PATH="\$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 EOF
 
-echo "Devcontainer feature [debian-dotnet-product]: dotnet installed. dotnet path: $DOTNET_PATH. dotnet product url: $DOTNET_PRODUCT_URL"
-echo "Devcontainer feature [debian-dotnet-product]: nuget path: $NUGET_PATH"
+cat << EOF >> $USER_HOME/.devcontainer_features.log
+Devcontainer feature [debian-dotnet-product]: dotnet installed. dotnet path: $DOTNET_PATH. dotnet product url: $DOTNET_PRODUCT_URL.
+Devcontainer feature [debian-dotnet-product]: nuget path: $NUGET_PATH.
+EOF
