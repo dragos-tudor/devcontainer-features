@@ -1,14 +1,24 @@
 {
     "name": "debian deno",
     "id": "debian-deno",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "description": "Install debian deno feature",
     "options": {
-        "deno_version": {
+        "version": {
             "type": "string",
-            "default": "v1.38.5",
+            "default": "v1.42.0",
             "description": "deno version"
-        }
+        },
+        "arch": {
+            "type": "string",
+            "default": "x86_64",
+            "description": "os architecture"            
+        },
+        "os": {
+            "type": "string",
+            "default": "unknown-linux-gnu",
+            "description": "operating system moniker"
+        }        
     },
     "installsAfter": [
         "ghcr.io/dragos-tudor/devcontainer-features/debian-packages",
