@@ -20,8 +20,9 @@ curl -fsSL $DOTNET_PRODUCT_URL -o $USER_HOME/dotnet.tar.gz &&
   chown -R $USER:$USER $DOTNET_PATH &&
   rm $USER_HOME/dotnet.tar.gz
 
-NUGET_PATH=$USER_HOME/.nuget
-mkdir $NUGET_PATH
+NUGET_PATH=$USER_HOME/.nuget &&
+mkdir $NUGET_PATH &&
+chown -R $USER:$USER $NUGET_PATH
 
 cat << EOF >> $USER_HOME/.bashrc
 export DOTNET_ROOT=$DOTNET_ROOT
