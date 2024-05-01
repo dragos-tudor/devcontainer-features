@@ -9,7 +9,6 @@
 
 ### Remarks
 - usually container workspace owner user/group ids should map with directory owner host user/group ids.
-- **docker** group is used to allow container user access to host `docker.sock` for **docker-outside-of-docker** scenarios like integration testing.
 - **$PATH** env is unresolved on `~/.bashrc` file to allow multipe export PATH declarations [**debian-dotnet-product**, **debian-deno**].
 - best practices: 
     - mount docker **nuget** volume on `~/.nuget` folder to reuse dotnet packages between containers.
