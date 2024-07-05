@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-[ $_REMOTE_USER = root ] && echo "Devcontainer feature [debian-user-group]: Root user not supported" && exit 1;
+[ $_REMOTE_USER = root ] && echo "Devcontainer feature [debian-user-group]: root user not supported" && exit 1;
 
 USER=${_REMOTE_USER:-vscode}
 GROUP=${_REMOTE_USER:-vscode}
@@ -12,7 +12,7 @@ GID=${GID:-1000}
 groupadd -g $GID $GROUP &&
   useradd -m -d $USER_HOME -s /bin/bash -g $GID -u $UID $USER || exit
 
-cat << EOF >> $USER_HOME/.devcontainer_features.log
-Devcontainer feature [debian-user-group]: User $USER:$UID created.
-Devcontainer feature [debian-user-group]: Group $GROUP:$GID created.
+cat << EOF >> /.devcontainer_features.log
+Devcontainer feature [debian-user-group]: user $USER:$UID created.
+Devcontainer feature [debian-user-group]: group $GROUP:$GID created.
 EOF

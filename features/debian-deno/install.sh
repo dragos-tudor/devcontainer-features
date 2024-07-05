@@ -6,7 +6,7 @@ USER_HOME=/home/$USER
 DENO_ROOT=$USER_HOME/.deno
 DENO_RELEASE_URL="https://github.com/denoland/deno/releases/download/$VERSION/deno-$ARCH-$OS.zip"
 
-cat << EOF >> $USER_HOME/.devcontainer_features.log
+cat << EOF >> /.devcontainer_features.log
 Devcontainer feature [debian-deno]: install deno from: $DENO_RELEASE_URL.
 EOF
 
@@ -25,6 +25,6 @@ export DENO_DIR=$DENO_CACHE
 export PATH="\$PATH:$DENO_ROOT"
 EOF
 
-cat << EOF >> $USER_HOME/.devcontainer_features.log
+cat << EOF >> /.devcontainer_features.log
 Devcontainer feature [debian-deno]: deno installed, deno root: $DENO_ROOT, deno cache: $DENO_CACHE, deno version: $VERSION.
 EOF
