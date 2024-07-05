@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -eo pipefail
 
 USER=${_REMOTE_USER:-vscode}
 USER_HOME=/home/$USER
@@ -18,11 +18,11 @@ curl -fsSL $DOTNET_PRODUCT_URL -o $USER_HOME/dotnet.tar.gz &&
 	tar -xzf $USER_HOME/dotnet.tar.gz -C $DOTNET_PATH &&
   chmod +x $DOTNET_PATH/dotnet &&
   chown -R $USER:$USER $DOTNET_PATH &&
-  rm $USER_HOME/dotnet.tar.gz
+  rm $USER_HOME/dotnet.tar.gz || exit
 
 NUGET_PATH=$USER_HOME/.nuget &&
-mkdir $NUGET_PATH &&
-chown -R $USER:$USER $NUGET_PATH
+  mkdir $NUGET_PATH &&
+  chown -R $USER:$USER $NUGET_PATH || exit
 
 cat << EOF >> $USER_HOME/.bashrc
 export DOTNET_ROOT=$DOTNET_ROOT

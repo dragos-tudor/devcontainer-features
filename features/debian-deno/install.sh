@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -eo pipefail
 
 USER=${_REMOTE_USER:-vscode}
 USER_HOME=/home/$USER
@@ -14,11 +14,11 @@ curl -fsSL $DENO_RELEASE_URL -o $USER_HOME/deno.zip &&
     unzip -d $DENO_ROOT -o $USER_HOME/deno.zip &&
     chmod +x $DENO_ROOT/deno &&
     chown -R $USER:$USER $DENO_ROOT &&
-    rm $USER_HOME/deno.zip
+    rm $USER_HOME/deno.zip || exit
 
-DENO_CACHE=$USER_HOME/.deno-cache
-mkdir -p $DENO_CACHE
-    chown -R $USER:$USER $DENO_CACHE
+DENO_CACHE=$USER_HOME/.deno-cache &&
+    mkdir -p $DENO_CACHE &&
+    chown -R $USER:$USER $DENO_CACHE || exit
 
 cat << EOF >> $USER_HOME/.bashrc
 export DENO_DIR=$DENO_CACHE

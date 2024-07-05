@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -eo pipefail
 
 [ $_REMOTE_USER = root ] && echo "Devcontainer feature [debian-user-group]: Root user not supported" && exit 1;
 
@@ -10,7 +10,7 @@ UID=${UID:-1000}
 GID=${GID:-1000}
 
 groupadd -g $GID $GROUP &&
-  useradd -m -d $USER_HOME -s /bin/bash -g $GID -u $UID $USER
+  useradd -m -d $USER_HOME -s /bin/bash -g $GID -u $UID $USER || exit
 
 cat << EOF >> $USER_HOME/.devcontainer_features.log
 Devcontainer feature [debian-user-group]: User $USER:$UID created.
