@@ -6,8 +6,9 @@ USER_HOME=/home/$USER
 DOTNET_PATH=$USER_HOME/.dotnet
 DOTNET_ROOT=$DOTNET_PATH
 
-if [[ -n $BUILD ]]; then DOTNET_BUILD=/$BUILD; fi
-DOTNET_PRODUCT_URL="https://aka.ms/dotnet/${VERSION}${DOTNET_BUILD}/${PRODUCT}-${OS}-${ARCH}.${EXT}"
+if [ "$PRODUCT" == "sdk" ]; then DOTNET_PRODUCT_URL="https://dotnetcli.azureedge.net/dotnet/sdk/$VERSION/dotnet-sdk-$VERSION-${OS}-${ARCH}.${EXT}"; fi
+if [ "$PRODUCT" == "aspnetcore" ]; then DOTNET_PRODUCT_URL="https://dotnetcli.azureedge.net/dotnet/aspnetcore/runtime/$VERSION/aspnetcore-runtime-$VERSION-${OS}-${ARCH}.${EXT}"; fi
+if [ "$PRODUCT" == "runtime" ]; then DOTNET_PRODUCT_URL="https://dotnetcli.azureedge.net/dotnet/runtime/$VERSION/dotnet-runtime-$VERSION-${OS}-${ARCH}.${EXT}"; fi
 
 cat << EOF >> /.devcontainer_features.log
 Devcontainer feature [debian-dotnet-product]: install dotnet product from: $DOTNET_PRODUCT_URL.

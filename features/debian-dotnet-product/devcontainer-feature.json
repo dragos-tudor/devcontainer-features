@@ -6,18 +6,14 @@
     "options": {
         "version": {
             "type": "string",
-            "default": "8.0",
+            "default": "8.0.302",
             "description": "dotnet version"
-        },
-        "build": {
-            "type": "string",
-            "default": "",
-            "description": "dotnet build"
-        },        
+        },   
         "product": {
             "type": "string",
-            "default": "dotnet-sdk",
-            "description": "dotnet product"
+            "default": "sdk",
+            "description": "dotnet product",
+            "proposals": ["sdk", "aspnetcore", "runtime"]
         },
         "os": {
             "type": "string",
