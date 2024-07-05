@@ -14,4 +14,4 @@
     - mount docker *nuget* volume on `~/.nuget` folder to reuse dotnet packages between containers.
     - mount docker *deno-cache* volume on `~/.deno-cache` folder to reuse deno modules and npm packages between containers. 
 - tested using Ubuntu host.
-- *debian-dotnet-product* should be used only with *dotnet-runtime-deps* base images and these images in-sync with *dotnet version* because starting with version 1.3.0 *debian-packages* feature will not longer install packages needed by dotnet. This change allow to use different debian or other linux distors as base images without to manually install neccessary packages for dotnet.
+- *debian-dotnet-product* should be used only with *dotnet-runtime-deps* base images and these images in-sync with *dotnet version* because starting with version 1.3.0 *debian-packages* feature will not longer install packages needed by dotnet. This change allow to use different debian based distros as base images without to manually install on each container neccessary packages to run dotnet.
