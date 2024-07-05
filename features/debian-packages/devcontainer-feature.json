@@ -6,7 +6,7 @@
     "options": {
         "packages": {
             "type": "string",
-            "default": "ca-certificates curl git libicu70 mkcert nano tar unzip",
+            "default": "ca-certificates curl git mkcert nano tar unzip",
             "description": "debian packages"
         }
     }
