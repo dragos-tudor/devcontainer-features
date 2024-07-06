@@ -20,4 +20,4 @@
 - *debian-dotnet-product* feature:
     - should be used only with *dotnet-runtime-deps* base images.
     - *dotnet-runtime-deps* base images versions should be in-sync with *dotnet version*.
-    - *dotnet-runtime-deps* base images versions have already installed neccessary packages to run dotnet [[ubuntu packages here]](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies), [[alpine packages here]](https://learn.microsoft.com/en-us/dotnet/core/install/linux-alpine#dependencies).
+    - *dotnet-runtime-deps* base images versions have already installed neccessary packages to run dotnet [[ubuntu packages here]](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#dependencies), [[debian packages here]](https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian#dependencies).
